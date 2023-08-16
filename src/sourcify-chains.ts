@@ -1,17 +1,16 @@
-import * as chainsRaw from "./chains.json";
-import * as dotenv from "dotenv";
-import path from "path";
-import { SourcifyEventManager } from "./common/SourcifyEventManager/SourcifyEventManager";
 import {
-  SourcifyChain,
-  SourcifyChainMap,
-  SourcifyChainExtension,
   Chain,
+  SourcifyChain,
+  SourcifyChainExtension,
+  SourcifyChainMap,
 } from "@ethereum-sourcify/lib-sourcify";
-import { etherscanAPIs } from "./config";
-import { ValidationError } from "./common/errors";
-import { logger } from "./common/loggerLoki";
+import * as dotenv from "dotenv";
 import { FetchRequest } from "ethers";
+import path from "path";
+import * as chainsRaw from "./chains.json";
+import { SourcifyEventManager } from "./common/SourcifyEventManager/SourcifyEventManager";
+import { ValidationError } from "./common/errors";
+import { etherscanAPIs } from "./config";
 
 const allChains = chainsRaw as Chain[];
 
@@ -765,7 +764,7 @@ const sourcifyChainsExtensions: SourcifyChainsExtensionsObject = {
   "14": {
     // Turned off support as RPCs are failing
     // Flare Mainnet
-    supported: false,
+    supported: true,
     monitored: false,
     contractFetchAddress:
       "https://flare-explorer.flare.network/" + BLOCKSCOUT_SUFFIX,
